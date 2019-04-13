@@ -17,12 +17,12 @@ Flat::Flat(int price)
 	this->cntRooms = 0;
 }
 
-// конструктор копирования
-void Flat::addRoom(const Room &r) {
-	if (this->rooms == nullptr) {
-
+// конструктор копирования объекта класса Room
+void Flat::addRoom(const Room &r) 
+{
+	if (this->rooms == nullptr) 
+	{
 		this->rooms = new Room[1];
-
 		rooms[0].rewrite(r);
 		cntRooms = 1;
 		return;
@@ -36,15 +36,17 @@ void Flat::addRoom(const Room &r) {
 	rooms = tmp;
 	cntRooms++;
 }
+// геттер для площади - расчет суммарной площади квартиры - методом суммирования площадей комнат
 int Flat::getFlatArea() const 
 {
 	int area = 0;
 	for (size_t i = 0; i < cntRooms; i++)
 	{
-		area += rooms[i].getArea();
+		area += rooms[i].getArea(); // вызов метода получения площади комнаты
 	}
 	return area;
 }
+// метод вывода информации о квартире
 void Flat::info() 
 {
 	cout<< "\n Стоимость квартиры ---- " << this->price
@@ -54,7 +56,7 @@ void Flat::info()
 		<< "\n\n Комнаты:\n";
 	for (size_t i = 0; i < cntRooms; i++)
 	{
-		rooms[i].info();
+		rooms[i].info(); // вызов метода информации о комнате
 	}
 }
 Flat::~Flat()

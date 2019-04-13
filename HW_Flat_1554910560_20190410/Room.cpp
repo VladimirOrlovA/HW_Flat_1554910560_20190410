@@ -21,7 +21,7 @@ Room::Room(const char *name, int area)
 }
 
 // конструктор копировани€
-Room::Room(const Room&obj) 
+Room::Room(const Room &obj) 
 {
 	this->area = obj.area;
 	this->name = new char[strlen(obj.name) + 1];
@@ -38,12 +38,20 @@ void Room::info() const
 // сеттер названи€ комнаты и площадь
 void Room::setNameArea()
 {
+	/*char *entName;
 	cout << "¬ведите название комнаты -> ";
-	cin >> this->name;
+	cin >> entName;
 	cout << "¬ведите площадь комнаты -> ";
 	cin >> this->area;
 	
-	Room::Room(name, area);
+	if (strlen(this->name) != strlen(entName))
+	{
+		delete[] this->name;
+		this->name = new char[strlen(entName) + 1];
+	}
+	strcpy_s(this->name, strlen(this->name) + 1, entName);*/
+
+	//Room::Room(name, area);
 }
 
 // геттер информации о названии комнаты
@@ -55,13 +63,15 @@ int Room::getArea()const
 { return area; }
 
 // метод перезаписи информации о комнате
-void Room::rewrite(const Room&p) {
-	this->area = p.area;
-	if (strlen(this->name) != strlen(p.name)) {
+void Room::rewrite(const Room &p) 
+{
+	if (strlen(this->name) != strlen(p.name)) 
+	{
 		delete[]this->name;
 		this->name = new char[strlen(p.name) + 1];
 	}
 	strcpy_s(this->name, strlen(p.name) + 1, p.name);
+	this->area = p.area;
 }
 
 // деструктор

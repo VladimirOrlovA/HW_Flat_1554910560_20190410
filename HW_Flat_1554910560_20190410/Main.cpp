@@ -14,13 +14,11 @@ void main()
 	first.addRoom(bedroom);
 	first.addRoom(kitchen);
 	first.addRoom(bathroom);
-
+	first.info();
 	cout << endl<<endl;
 
-	//hall.setNameArea();
-	//hall.info();
-
-	first.info();
+	/*hall.setNameArea();
+	hall.info();*/
 
 	cout << endl << endl;
 
