@@ -1,6 +1,6 @@
 #include"Flat.h"
 
-void main()
+int main()
 {
 	setlocale(LC_ALL, "RUS");
 
@@ -14,12 +14,40 @@ void main()
 	first.addRoom(bedroom);
 	first.addRoom(kitchen);
 	first.addRoom(bathroom);
-	first.info();
-	cout << endl<<endl;
+	first.setPrice(333);
+	////first.info();
+	//cout << endl<<endl;
+
+
+	//Flat second;
+	//second.addRoom(hall);
+	//second.addRoom(bedroom);
+	//second.addRoom(kitchen);
+	////second.addRoom(bathroom);
+
+	//cout << first.getFlatArea() << endl;
+	//cout << second.getFlatArea() << endl;
+
+	////Проверка метода - метод для проверки относятся ли квартиры  к одному типу(одно, двух, трехкомнатная)
+	//first.compareCntRooms(second);
+
+	////Проверка метода - метод для проверки равенства площадей  квартир
+	//first.compareCntFlatsArea(second);
+
+	////Проверка метода - метод для сравнения цены квартир
+	//first.setPrice(100);
+	//second.setPrice(200);
+	//first.compareFlatsPrice(second);
+
+	//Проверка метода - метод для копирования объектов Flat
+	Flat copy;
+	copy.info();
+	copy.copyFlats(first);
+	cout << "После копирования содержимое copy \n\n";
+	copy.info();
 
 	/*hall.setNameArea();
 	hall.info();*/
-
 	cout << endl << endl;
 
 	system("pause");

@@ -36,6 +36,18 @@ void Flat::addRoom(const Room &r)
 	rooms = tmp;
 	cntRooms++;
 }
+// сеттер для цены квартиры
+void Flat::setPrice(int price)
+{
+	if (!price)
+	{
+		cout << "Установите цену квартиры -> ";
+		cin >> price;
+		this->price = price;
+		return;
+	}
+	this->price = price;
+}
 // геттер для площади - расчет суммарной площади квартиры - методом суммирования площадей комнат
 int Flat::getFlatArea() const 
 {
@@ -46,12 +58,58 @@ int Flat::getFlatArea() const
 	}
 	return area;
 }
+// геттер для получения инф о кол-ве комнат
+int Flat::getFlatCntRooms() const
+{
+	return cntRooms;
+}
+// метод для проверки относятся ли квартиры  к одному типу (одно, двух, трехкомнатная)
+void Flat::compareCntRooms(Flat const &obj2) const
+{
+	if (this->cntRooms == obj2.cntRooms)
+		cout << "\n Выбранные квартиры однотипные - одинаковое кол-во комнат \n\n";
+	else cout << "\n Выбранные квартиры разного типа - разное кол-во комнат \n\n";
+}
+// метод для проверки равенства площадей  квартир
+void Flat::compareCntFlatsArea(Flat const &obj2) const
+{
+	if (this->getFlatArea() == obj2.getFlatArea())
+		cout << "\n Выбранные квартиры имеют одинаковую площадь \n\n";
+	else
+	{
+		int dif = this->getFlatArea() - obj2.getFlatArea();
+		if (dif>0)	cout << "\n Площадь в квартире для сравнения меньше на " << dif << " кв.м. \n\n";
+		else cout << "\n Площадь в квартире для сравнения больше на " << dif*(-1) << " кв.м. \n\n";
+	}
+}
+// метод для сравнения цены квартир
+void Flat::compareFlatsPrice(Flat const & obj2) const
+{
+	if (this->price == obj2.price)
+		cout << "\n Выбранные квартиры имеют одинаковую площадь \n\n";
+	else
+	{
+		int dif = this->price - obj2.price;
+		if (dif > 0)	cout << "\n Цена квартиры для сравнения меньше на " << dif << " т.дол. \n\n";
+		else cout << "\n Цена квартиры для сравнения больше на " << dif * (-1) << " т.дол. \n\n";
+	}
+}
+// метод для копирования объектов Flat
+void Flat::copyFlats(Flat const & obj2)
+{
+	this->price = obj2.price;
+	this->cntRooms = obj2.cntRooms;
+
+	this->rooms = new int[10];
+	
+
+}
 // метод вывода информации о квартире
 void Flat::info() 
 {
 	cout<< "\n Стоимость квартиры ---- " << this->price
 		<< "\n Площадь квартиры ------ " << this->getFlatArea()
-		<< "\n Кол-во комнат --------- " << cntRooms
+		<< "\n Кол-во комнат --------- " << this->cntRooms
 		
 		<< "\n\n Комнаты:\n";
 	for (size_t i = 0; i < cntRooms; i++)

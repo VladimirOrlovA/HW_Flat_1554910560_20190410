@@ -5,7 +5,7 @@
 // конструктор по умолчанию
 Room::Room()
 {
-	cout << " онструктор по умолчанию \n";
+	cout << "Room -  онструктор по умолчанию \n";
 	this->name = new char[strlen("hall") + 1];
 	strcpy_s(this->name, strlen("hall") + 1, "hall");
 	this->area = 20;
@@ -14,7 +14,7 @@ Room::Room()
 // конструктор с параметрами
 Room::Room(const char *name, int area) 
 {
-	cout << " онструктор с параметрами \n";
+	cout << "Room -  онструктор с параметрами \n";
 	this->name = new char[strlen(name) + 1];
 	strcpy_s(this->name, strlen(name) + 1, name);
 	this->area = area;

@@ -14,6 +14,6 @@ public:
 	void setNameArea();
 	const char* getName()const;
 	int getArea()const;
-	void rewrite(const Room&p);	
+	void rewrite(const Room &p);	
 	~Room();
 };
