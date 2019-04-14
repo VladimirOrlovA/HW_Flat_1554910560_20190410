@@ -15,12 +15,14 @@ Room::Room()
 Room::Room(const char *name, int area) 
 {
 	cout << "Room - Конструктор с параметрами \n";
+	if (this->name != nullptr)
+		delete[] this->name;
 	this->name = new char[strlen(name) + 1];
 	strcpy_s(this->name, strlen(name) + 1, name);
 	this->area = area;
 }
 
-// конструктор копирования
+// конструктор копирования объекта
 Room::Room(const Room &obj) 
 {
 	this->area = obj.area;
@@ -35,23 +37,19 @@ void Room::info() const
 		<< "\n Площадь \t\t" << this->area << endl;
 }
 
-// сеттер названия комнаты и площадь
+// сеттер названия комнаты и площади
 void Room::setNameArea()
 {
-	/*char *entName;
 	cout << "Введите название комнаты -> ";
 	cin >> entName;
 	cout << "Введите площадь комнаты -> ";
 	cin >> this->area;
-	
-	if (strlen(this->name) != strlen(entName))
-	{
-		delete[] this->name;
-		this->name = new char[strlen(entName) + 1];
-	}
-	strcpy_s(this->name, strlen(this->name) + 1, entName);*/
 
-	//Room::Room(name, area);
+	Room(entName);
+
+	/*delete[] this->name;
+	this->name = new char[strlen(entName) + 1];
+	strcpy_s(this->name, strlen(this->name) + 1, entName);*/
 }
 
 // геттер информации о названии комнаты
@@ -65,10 +63,10 @@ int Room::getArea()const
 // метод перезаписи информации о комнате
 void Room::rewrite(const Room &p) 
 {
-	if (strlen(this->name) != strlen(p.name)) 
+	if (strlen(this->name) != strlen(p.name))  // если длина имени комнаты не равна длине имени комнаты из объекта комната
 	{
-		delete[]this->name;
-		this->name = new char[strlen(p.name) + 1];
+		delete[]this->name;	// очищаем массив имени комнаты
+		this->name = new char[strlen(p.name) + 1]; // выделяем динамическую память под массив размером названия длины комнаты + /0
 	}
 	strcpy_s(this->name, strlen(p.name) + 1, p.name);
 	this->area = p.area;

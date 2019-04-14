@@ -5,6 +5,7 @@ using namespace std;
 
 class Room {
 	char*name;
+	char*entName;
 	int area;
 public:
 	Room();

@@ -20,10 +20,10 @@ Flat::Flat(int price)
 // конструктор копирования объекта класса Room
 void Flat::addRoom(const Room &r) 
 {
-	if (this->rooms == nullptr) 
+	if (this->rooms == nullptr) // проверка есть ли хоть одна комната во Flat
 	{
-		this->rooms = new Room[1];
-		rooms[0].rewrite(r);
+		this->rooms = new Room[1]; // создаем массив комнат из одной комнаты
+		rooms[0].rewrite(r);	// для 0 элемента записываем объект комната
 		cntRooms = 1;
 		return;
 	}
@@ -98,11 +98,14 @@ void Flat::compareFlatsPrice(Flat const & obj2) const
 void Flat::copyFlats(Flat const & obj2)
 {
 	this->price = obj2.price;
-	this->cntRooms = obj2.cntRooms;
-
-	this->rooms = new int[10];
 	
-
+	Room *tmp = new Room[obj2.getFlatCntRooms()];
+	for (size_t i = 0; i < obj2.getFlatCntRooms(); i++)
+	{
+		this->rooms[i] = obj2.rooms[i];
+	}
+	delete[]rooms;
+	rooms = tmp;
 }
 // метод вывода информации о квартире
 void Flat::info() 
