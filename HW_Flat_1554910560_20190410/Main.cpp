@@ -5,16 +5,17 @@ int main()
 	setlocale(LC_ALL, "RUS");
 
 	Room hall("Зал", 40);
-	Room bedroom("Спальня", 25);
-	Room kitchen("Кухня", 25);
-	Room bathroom("Ванная", 5);
+	//hall.info();
+	//Room bedroom("Спальня", 25);
+	//Room kitchen("Кухня", 25);
+	//Room bathroom("Ванная", 5);
 
 	Flat first;
 	first.addRoom(hall);
-	first.addRoom(bedroom);
+	/*first.addRoom(bedroom);
 	first.addRoom(kitchen);
-	first.addRoom(bathroom);
-	first.setPrice(333);
+	first.addRoom(bathroom);*/
+	//first.setPrice(333);
 	////first.info();
 	//cout << endl<<endl;
 
@@ -43,12 +44,12 @@ int main()
 	Flat copy;
 	copy.info();
 	copy.copyFlats(first);
-	cout << "После копирования содержимое copy \n\n";
+	cout << "\nПосле копирования содержимое copy \n\n";
 	copy.info();
 
 	/*hall.setNameArea();
-	hall.info();*/
-	cout << endl << endl;
+	hall.info();
+	cout << endl << endl;*/
 
 	system("pause");
 }

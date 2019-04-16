@@ -102,10 +102,11 @@ void Flat::copyFlats(Flat const & obj2)
 	Room *tmp = new Room[obj2.getFlatCntRooms()];
 	for (size_t i = 0; i < obj2.getFlatCntRooms(); i++)
 	{
-		this->rooms[i] = obj2.rooms[i];
+		tmp[i].rewrite(obj2.rooms[i]);
 	}
 	delete[]rooms;
 	rooms = tmp;
+	this->cntRooms = obj2.cntRooms;
 }
 // метод вывода информации о квартире
 void Flat::info() 
@@ -122,5 +123,6 @@ void Flat::info()
 }
 Flat::~Flat()
 {
+	delete[] rooms;
 }
 

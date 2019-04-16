@@ -5,7 +5,6 @@ using namespace std;
 
 class Room {
 	char*name;
-	char*entName;
 	int area;
 public:
 	Room();
@@ -15,6 +14,7 @@ public:
 	void setNameArea();
 	const char* getName()const;
 	int getArea()const;
-	void rewrite(const Room &p);	
+	void rewrite(const Room &p);
+	//void operetor=(cons Room)
 	~Room();
 };
